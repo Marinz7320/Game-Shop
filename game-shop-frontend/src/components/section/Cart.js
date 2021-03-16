@@ -8,7 +8,7 @@ import Axios from 'axios';
 
 export class Cart extends Component {
     static contextType = DataContext;
-
+     
     state = {
         loginStatus: false,
         user: {}
@@ -16,7 +16,8 @@ export class Cart extends Component {
 
     componentDidMount(){
         this.context.getTotal();
-        Axios.get("http://localhost:3001/login").then((response) => {
+        let url = 'https://studenti.sum.ba/TheGameShop';
+        Axios.get(url +"/login").then((response) => {
             console.log(response);
             if (response.data.loggedIn === true) {
                 this.setState({loginStatus: true, user: response.data.user[0]});

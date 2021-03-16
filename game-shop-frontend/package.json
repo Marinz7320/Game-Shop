@@ -17,6 +17,9 @@
     "react-show-more-text": "^1.4.6",
     "web-vitals": "^0.2.4"
   },
+  "devDependencies": {},
+  "homepage": "https://studenti.sum.ba/projekti/fsre_rwa/2020/g5/",   
+  "author": "",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

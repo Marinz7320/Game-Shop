@@ -8,7 +8,7 @@ import { MainTitle } from './MainTitle'
 const Postavke = () => {
     // eslint-disable-next-line
     Axios.defaults.withCredentials = true;
-    let url = 'http://localhost:3001';
+    let url = 'https://studenti.sum.ba/TheGameShop';
 
     const [username, setUsername] = useState("");
     const [newusername, setnewUsername] = useState("");
@@ -34,7 +34,7 @@ const Postavke = () => {
 
     useEffect(() => {
         Axios.defaults.withCredentials = true;
-        Axios.get(url +"login", {
+        Axios.get(url +"/login", {
             headers: { "x-access-token": localStorage.getItem("token") }
         }).then((response) => {
             if (response.data.loggedIn === true) {
@@ -154,7 +154,7 @@ const Postavke = () => {
             var updatename = window.confirm("Jeste li sigurni da želite promjeniti vaše korisničko ime?");
             if (updatename === true) {
                 if (validUsername === 1 && validUserPassword === 1 && validUserRepassword === 1) {
-                    Axios.put(url +"api/updateusername", {
+                    Axios.put(url +"/api/updateusername", {
                         newusername: newusername,
                         password: password,
                         username: username,
@@ -203,7 +203,7 @@ const Postavke = () => {
             var updatepas = window.confirm("Jeste li sigurni da želite promjeniti vašu lozinku?");
             if (updatepas === true) {
                 if (validNewPassword === 1 && validCurrentPassword === 1 && validRepassword === 1) {
-                    Axios.put( url +"api/updatepassword", {
+                    Axios.put( url +"/api/updatepassword", {
                         newpassword: newpassword,
                         password: password
                     },
@@ -232,7 +232,7 @@ const Postavke = () => {
     const deleteUser = () => {
         var del = window.confirm("Jeste li sigurni da želite izbrisati vaš account?");
         if (del === true) {
-            Axios.delete(url +"api/deleteuser",
+            Axios.delete(url +"/api/deleteuser",
                 { headers: { "x-access-token": localStorage.getItem("token") } }
             ).then((response) => {
                 console.log(response);

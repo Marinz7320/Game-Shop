@@ -1,3 +1,10 @@
+require('dotenv').config();
+const { DB_HOST,
+    DB_PORT,
+    DB_USER,
+    DB_PASSWORD,
+    DB_DATABASE,
+    JWT_SECRET, } = process.env;
 const express = require("express");
 const app = express();
 const cors = require('cors');
@@ -11,10 +18,11 @@ const jwt = require('jsonwebtoken');
 
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'printer12345678',
-    database: 'gameshopdatabase',
+    host: DB_HOST,
+    port: DB_PORT,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_DATABASE,
 });
 
 
@@ -215,7 +223,7 @@ function verifiyJWT(req, res, next) {
         res.send({ loggedIn: false });
     }
     else {
-        jwt.verify(token, "arktickiocean", (err, decoded) => {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
                 console.log("wrong token");
                 res.send({ loggedIn: false });
@@ -280,7 +288,7 @@ app.post("/login", (req, res) => {
             if (result.length > 0) {
                 bcrypt.compare(password, result[0].password, (error, response) => {
                     if (response) {
-                        const token = jwt.sign({ user_id: result[0].user_id }, "arktickiocean", {
+                        const token = jwt.sign({ user_id: result[0].user_id }, JWT_SECRET, {
                             expiresIn: 30 * 60 * 1000
                         })
                         res.json({
@@ -316,7 +324,7 @@ app.put("/api/updateusername", (req, res) => {
         res.send("no token");
     }
     else {
-        jwt.verify(token, "arktickiocean", (err, decoded) => {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
                 console.log("wrong token");
             }
@@ -354,7 +362,7 @@ app.put("/api/updateusername", (req, res) => {
                                                             }
                                                             else {
                                                                 console.log("Updateani");
-                                                                res.send({ update: true });
+                                                                
                                                             }
                                                         })
                                                 }
@@ -388,7 +396,7 @@ app.put("/api/updatepassword", (req, res) => {
         res.send("no token");
     }
     else {
-        jwt.verify(token, "arktickiocean", (err, decoded) => {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
                 console.log(err);
                 res.send("Error");
@@ -414,10 +422,10 @@ app.put("/api/updatepassword", (req, res) => {
                                             [hash, user_id],
                                             (err, result) => {
                                                 if (err) {
-                                                    res.send({ err: err });
+                                                    console.log(err);
                                                 }
                                                 else {
-                                                    res.send({ updatepas: true });
+                                                    console.log("Updated");
                                                 }
                                             })
                                     }
@@ -453,7 +461,7 @@ app.post("/PasswordValidation", (req, res) => {
         res.send("no token");
     }
     else {
-        jwt.verify(token, "arktickiocean", (err, decoded) => {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
                 console.log(err);
                 res.send("Error");
@@ -495,7 +503,7 @@ app.delete("/api/deleteuser", (req, res) => {
         console.log("no token");
     }
     else {
-        jwt.verify(token, "arktickiocean", (err, decoded) => {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
                 console.log("wrong token");
                 
@@ -550,6 +558,7 @@ app.put("/updateIntoAdmin", (req, res) => {
             }
             else {
                 console.log("Updatead user into ADMIN with id" + user_id);
+                res.send({update:true});
             }
         }
     )
@@ -569,6 +578,7 @@ app.put("/revertbacktoUser", (req, res) => {
             }
             else {
                 console.log("Updatead user into user with id" + user_id);
+                res.send({update:true});
             }
         }
     )

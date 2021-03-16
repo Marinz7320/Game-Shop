@@ -8,7 +8,7 @@ import { MainTitle } from './MainTitle'
 const Profile = () => {
     // eslint-disable-next-line
     Axios.defaults.withCredentials = true;
-    let url = 'http://localhost:3001';
+    let url = 'https://studenti.sum.ba/TheGameShop';
     const [loginStatus, setLoginStatus] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
     useEffect(() => {

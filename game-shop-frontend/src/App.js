@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import Header from './components/Header'
 import Section from './components/Section'
 import Footer from './components/Footer'
@@ -14,7 +14,7 @@ class App extends Component{
     const {theme} = this.context;
     return(
       <div className={theme ? "theme-app" : "app"}>
-        <Router>
+        <Router basename="">
           <Switch>
             <Route path="/login">
               <LogSection />

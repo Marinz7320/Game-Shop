@@ -9,7 +9,7 @@ import LogoTheme from './img/gs-theme.png'
 
 export default function Register() {
 
-    let url = 'http://localhost:3001';
+    let url = 'https://studenti.sum.ba/TheGameShop';
     const [usernameReg, setUsernameReg] = useState("");
     const [emailReg, setEmailReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");

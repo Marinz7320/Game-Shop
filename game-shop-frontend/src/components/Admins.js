@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 
 const Admins = () => {
-    let url = 'http://localhost:3001';
+    let url = 'https://studenti.sum.ba/TheGameShop';
     useEffect(() => {
         Axios.get(url + '/getAdminsOnly').then((response) => {
             setAdminList([...response.data]);
@@ -23,7 +23,7 @@ const Admins = () => {
             }
             ).then((response) => {
                 console.log(response);
-                window.hlocation.reload();
+                window.location.reload();
             })
         }
         else{}
