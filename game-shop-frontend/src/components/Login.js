@@ -7,7 +7,7 @@ import LogoTheme from './img/gs-theme.png'
 import { ProductConsumer } from './Context'
 
 function Login() {
-    let url = 'https://studenti.sum.ba/TheGameShop';
+    let url = 'http://studenti.sum.ba:3003';
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loginStatus, setLoginStatus] = useState(false);

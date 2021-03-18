@@ -8,7 +8,7 @@ import Axios from 'axios';
 function New() {
     const [selected_filter, setFilter] = useState("none");
     const [selected_view, setView] = useState("flexrow");
-    let url = 'https://studenti.sum.ba/TheGameShop';
+    let url = 'http://studenti.sum.ba:3003';
     useEffect(() => {
         Axios.defaults.withCredentials = true;
         Axios.get(url + "/login", {

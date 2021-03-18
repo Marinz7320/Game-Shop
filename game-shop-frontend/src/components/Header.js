@@ -30,12 +30,11 @@ class Header extends Component{
     this.setState({toggle: !this.state.toggle})
   }
   componentDidMount() {
-    let url = 'https://studenti.sum.ba/TheGameShop';
+    let url = 'http://studenti.sum.ba:3003';
     Axios.defaults.withCredentials = true;
     Axios.get(url +"/login", {
       headers: { "x-access-token": localStorage.getItem("token") }
     }).then((response) => {
-      console.log(response.data);
       if (response.data.loggedIn === true) {
         this.setState({ 
         loggedIn: response.data.loggedIn,
