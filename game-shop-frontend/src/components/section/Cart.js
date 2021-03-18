@@ -16,7 +16,7 @@ export class Cart extends Component {
 
     componentDidMount(){
         this.context.getTotal();
-        let url = 'https://studenti.sum.ba:3003';
+        let url = 'https://studenti.sum.ba/TheGameShop';
         Axios.get(url +"/login").then((response) => {
             console.log(response);
             if (response.data.loggedIn === true) {

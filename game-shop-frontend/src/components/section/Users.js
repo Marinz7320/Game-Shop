@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 
 const Users = () => {
-    let url = 'https://studenti.sum.ba:3003';
+    let url = 'https://studenti.sum.ba/TheGameShop';
     useEffect(() => {
         Axios.get(url + '/getUsersOnly').then((response) => {
             setUserList([...response.data]);

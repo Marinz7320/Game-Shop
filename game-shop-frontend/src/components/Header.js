@@ -30,7 +30,7 @@ class Header extends Component{
     this.setState({toggle: !this.state.toggle})
   }
   componentDidMount() {
-    let url = 'https://studenti.sum.ba:3003';
+    let url = 'https://studenti.sum.ba/TheGameShop';
     Axios.defaults.withCredentials = true;
     Axios.get(url +"/login", {
       headers: { "x-access-token": localStorage.getItem("token") }
