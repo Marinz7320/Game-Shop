@@ -76,7 +76,7 @@ export default function Register() {
             }
         }
         for (var i = 0; i < userList.length; i++) {
-            if (email.toLowerCase() === userList[i].email.toLowerCase()) {
+            if (email === userList[i].email) {
                 validEmail = 0;
                 newErrorText[0] = 'Email is already taken';
             }
