@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
     cors({
-        origin: ["http://localhost:3000"],
+        origin: ["https://studenti.sum.ba"],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
@@ -597,6 +597,6 @@ app.put("/revertbacktoUser", (req, res) => {
 
 
 
-app.listen(3001, () => {
-    console.log("running on port 3001");
+app.listen(process.env.PORT || 3001, () => {
+    console.log("server running on " + (process.env.PORT ? process.env.PORT : 3001));
 });
