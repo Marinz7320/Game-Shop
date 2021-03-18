@@ -62,7 +62,7 @@ const Postavke = () => {
                         : 'Username is invalid';
         }
         for (var i = 0; i < userList.length; i++) {
-            if (username.toLowerCase() === userList[i].username.toLowerCase()) {
+            if (username === userList[i].username) {
                 validUsername = 0;
                 newErrorText[0] = 'Username is already taken';
             }
