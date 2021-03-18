@@ -9,7 +9,7 @@ import Axios from 'axios';
 function Pcc() {
     const [selected_filter, setFilter] = useState("none");
     const [selected_view, setView] = useState("flexrow");
-    let url = 'https://studenti.sum.ba/TheGameShop';
+    let url = 'https://studenti.sum.ba:3003';
     useEffect(() => {
         Axios.defaults.withCredentials = true;
         Axios.get(url + "/login", {
