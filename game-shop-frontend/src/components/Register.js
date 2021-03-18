@@ -9,7 +9,7 @@ import LogoTheme from './img/gs-theme.png'
 
 export default function Register() {
 
-    let url = 'http://studenti.sum.ba:3003';
+    let url = 'https://studenti.sum.ba:3003';
     const [usernameReg, setUsernameReg] = useState("");
     const [emailReg, setEmailReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");

@@ -8,7 +8,7 @@ import { MainTitle } from './MainTitle'
 const Postavke = () => {
     // eslint-disable-next-line
     Axios.defaults.withCredentials = true;
-    let url = 'http://studenti.sum.ba:3003';
+    let url = 'https://studenti.sum.ba:3003';
 
     const [username, setUsername] = useState("");
     const [newusername, setnewUsername] = useState("");

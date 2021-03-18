@@ -8,7 +8,7 @@ import { MainTitle } from './MainTitle'
 const Profile = () => {
     // eslint-disable-next-line
     Axios.defaults.withCredentials = true;
-    let url = 'http://studenti.sum.ba:3003';
+    let url = 'https://studenti.sum.ba:3003';
     const [loginStatus, setLoginStatus] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
     useEffect(() => {
